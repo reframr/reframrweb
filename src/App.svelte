@@ -1,30 +1,41 @@
 <script>
 	export let name;
+	import Button from './Button/svelte';
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<div class="two">
+		<div class="two-one">
+			<span id="title">reframr</span>
+		</div>
+
+		<div class="two-two">
+			<Button/>
+		</div>
+	</div>
 </main>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+	#title {
+		text-align: left;
 	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+	main {
+		padding: 1em;
+		margin: 0 auto;
+		font-family: 'DM Sans', sans-serif;
 	}
 
 	@media (min-width: 640px) {
-		main {
-			max-width: none;
+		#title {
+			font-size: 5rem;
+		}
+	}
+
+	@media (max-width: 640px){
+		#title {
+			text-align: left;
+			font-size: 3rem;
 		}
 	}
 </style>
