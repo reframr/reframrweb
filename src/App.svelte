@@ -1,41 +1,43 @@
 <script>
-	export let name;
-	import Button from './Button/svelte';
+	export let user = { loggedIn: false };
+
+	import { signIn } from './Blockstack.js';
+	import { signOut } from './Blockstack.js';
 </script>
 
 <main>
 	<div class="two">
 		<div class="two-one">
 			<span id="title">reframr</span>
-		</div>
-
-		<div class="two-two">
-			<Button/>
-		</div>
+		<!--</div>
+		 <div class="two-two">
+			{#if user.loggedIn}
+				<button on:click={ signOut }>
+					Log out
+				</button>
+			{:else}
+				<button on:click={ signIn }>
+					Log in
+				</button>
+			{/if}
+		</div> -->
 	</div>
 </main>
 
 <style>
+	main {
+		padding: 1em;
+		max-width: 240px;
+		margin: 0 auto;
+	}
+
 	#title {
 		text-align: left;
 	}
 
-	main {
-		padding: 1em;
-		margin: 0 auto;
-		font-family: 'DM Sans', sans-serif;
-	}
-
 	@media (min-width: 640px) {
-		#title {
-			font-size: 5rem;
-		}
-	}
-
-	@media (max-width: 640px){
-		#title {
-			text-align: left;
-			font-size: 3rem;
+		main {
+			max-width: none;
 		}
 	}
 </style>
