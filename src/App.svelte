@@ -1,43 +1,54 @@
+<link href="https://cdn.jsdelivr.net/gh/jetavators/airframe@master/airframe.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
 <script>
+
 	export let user = { loggedIn: false };
 
-	import { signIn } from './Blockstack.js';
-	import { signOut } from './Blockstack.js';
+	export function signOut(){
+		user.loggedIn = false;
+		console.log(user.loggedIn);
+	}
+
+	export function signIn(){
+		user.loggedIn = true;
+		console.log(user.loggedIn);
+	}
+	
 </script>
 
-<main>
-	<div class="two">
-		<div class="two-one">
-			<span id="title">reframr</span>
-		<!--</div>
-		 <div class="two-two">
-			{#if user.loggedIn}
-				<button on:click={ signOut }>
-					Log out
-				</button>
-			{:else}
-				<button on:click={ signIn }>
-					Log in
-				</button>
-			{/if}
-		</div> -->
-	</div>
-</main>
-
 <style>
-	main {
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+	* {
+		font-family: 'DM Sans', sans-serif;
 	}
-
-	#title {
+	
+	#top-one {
 		text-align: left;
+		padding-left: 1em;
+		font-size: 2rem;
 	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+	
+	#top-two {
+		text-align: right;
+		padding-right: 1em;
+		font-size: 1rem;
 	}
 </style>
+
+<div class="two">
+	<div class="two-one" id="top-one">
+		<span>reframr</span>
+	</div>
+
+	<div class="two-two" id="top-two">
+		{#if user.loggedIn}
+			<button on:click={ signOut }>
+				Log out
+			</button>
+		{:else}
+			<button on:click={ signIn }>
+				Log in
+			</button>
+		{/if}
+	</div>
+</div>
