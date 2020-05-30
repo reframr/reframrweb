@@ -1,1 +1,0 @@
-reframr is a dynamic video sharing website built on Sveltejs and Blockstack
